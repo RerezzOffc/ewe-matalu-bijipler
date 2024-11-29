@@ -1,0 +1,283 @@
+    /* Reset */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #0f0f0f, #292929);
+        color: #fff;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+  
+      body.light-mode {
+        background: linear-gradient(to bottom, #f0f0f0, #ffffff);
+        color: #000;
+      }
+  
+      /* Content Styling */
+      .container {
+        text-align: center;
+        width: 90%;
+        max-width: 500px;
+        position: relative;
+        margin: 50px auto;
+      }
+  
+      /* Profile Section */
+      .profile {
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards 0.5s;
+      }
+  
+      .profile img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px solid #a840f7;
+        margin-bottom: 10px;
+      }
+  
+      .profile h1 {
+        font-size: 1.8rem;
+        margin: 5px 0;
+      }
+  
+      .profile p {
+        font-size: 1rem;
+        margin: 5px 0;
+        font-style: italic;
+        color: #bbb;
+      }
+  
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        margin-top: 20px;
+        opacity: 0;
+        animation: buttonSlide 1s ease-out forwards 0.8s;
+      }
+  
+      .button {
+        background: rgba(168, 64, 247, 0.2);
+        color: #fff;
+        width: 45%;
+        border: 1px solid #a840f7;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        opacity: 0;
+        perspective: 1000px; /* Apply perspective to create 3D effect */
+      }
+
+      
+      body.light-mode .button {
+        background: rgba(168, 64, 247, 0.1);
+        color: #000;
+        border: 1px solid #888;
+      }
+  
+      body.light-mode .button:hover {
+        background: #a840f7;
+        color: #fff;
+        transform: translateY(-5px) scale(1.05) rotateY(10deg) rotateX(5deg); /* 3D Rotation */
+      }
+  
+      /* Links Section */
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards 1.5s;
+      }
+  
+      .links a {
+        text-decoration: none;
+        color: #fff;
+        background: rgba(168, 64, 247, 0.2);
+        border: 1px solid #a840f7;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        opacity: 0;
+        animation: fadeInLink 1s ease-out forwards;
+        perspective: 1000px; /* Apply perspective to create 3D effect */
+      }
+  
+      .links a:hover {
+        transform: translateY(-5px) scale(1.05) rotateY(10deg) rotateX(5deg); /* 3D Rotation */
+        box-shadow: 0 8px 15px rgba(168, 64, 247, 0.5);
+        background: #a840f7;
+      }
+  
+      body.light-mode .links a {
+        background: #e0e0e0;
+        color: #000;
+        border: 1px solid #888;
+      }
+  
+      body.light-mode .links a:hover {
+        background: #d0d0d0;
+        color: #000;
+        transform: translateY(-5px) scale(1.05) rotateY(10deg) rotateX(5deg); /* 3D Rotation */
+      }
+  
+      /* Footer Icons */
+      .footer {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards 2s;
+      }
+  
+      .footer a {
+        color: #fff;
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+  
+      .footer a:hover {
+        color: #a840f7;
+      }
+  
+      body.light-mode .footer a {
+        color: #000;
+      }
+  
+      body.light-mode .footer a:hover {
+        color: #333;
+      }
+  
+      /* Toggle Button */
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+        color: #fff;
+        background: rgba(168, 64, 247, 0.2);
+        border: 1px solid #a840f7;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+  
+      .theme-toggle:hover {
+        transform: scale(1.1);
+        background: #a840f7;
+      }
+  
+      body.light-mode .theme-toggle {
+        color: #000;
+        background: rgba(168, 64, 247, 0.1);
+      }
+  
+      body.light-mode .theme-toggle:hover {
+        background: #a840f7;
+        color: #fff;
+      }
+  
+      /* Keyframes */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+  
+      @keyframes fadeInLink {
+        0% {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+  
+      /* Staggered Animations for Links */
+      .links a:nth-child(1) {
+        animation: fadeInLink 1s ease-out forwards 1.5s; /* First link comes from the right */
+      }
+  
+      .links a:nth-child(2) {
+        animation: fadeInLinkReverse 1s ease-out forwards 2s; /* Second link comes from the left */
+      }
+  
+      .links a:nth-child(3) {
+        animation: fadeInLink 1s ease-out forwards 2.5s; /* Third link comes from the right */
+      }
+  
+      .links a:nth-child(4) {
+        animation: fadeInLinkReverse 1s ease-out forwards 3s; /* Fourth link comes from the left */
+      }
+  
+      .links a:nth-child(5) {
+        animation: fadeInLink 1s ease-out forwards 3.5s; /* Fifth link comes from the right */
+      }
+
+      .links a:nth-child(6) {
+        animation: fadeInLinkReverse 1s ease-out forwards 4s; /* Fourth link comes from the left */
+      }
+
+      .links a:nth-child(7) {
+        animation: fadeInLink 1s ease-out forwards 4.5s; /* Fifth link comes from the right */
+      }
+
+      .links a:nth-child(8) {
+        animation: fadeInLinkReverse 1s ease-out forwards 5s; /* Fourth link comes from the left */
+      }
+  
+      /* Reverse Animation for Links */
+      @keyframes fadeInLinkReverse {
+        0% {
+          opacity: 0;
+          transform: translateX(-100px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+  
+      /* Animations for Buttons */
+      @keyframes buttonSlide {
+        0% {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+  
+      /* Staggered Animations for Buttons */
+      .button:nth-child(1) {
+        animation: buttonSlide 1s ease-out forwards 0.8s; /* First button comes from the right */
+      }
+  
+      .button:nth-child(2) {
+        animation: buttonSlide 1s ease-out forwards 1.3s; /* Second button comes from the right */
+      }
